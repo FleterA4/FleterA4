@@ -1,0 +1,48 @@
+name: deployment
+on: workflow_dispatch
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest]
+        node: ['16']
+        include:
+        - os: windows-latest
+          commandPrefix: ''
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 1440
+    steps:
+    - name: RDP - Payload 1 - Importing File
+      run: |
+        cd C:\
+        C:
+        C:\Windows\System32\cmd.exe /c md Resource
+        cd C:\Resource
+        C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe Invoke-WebRequest https://raw.githubusercontent.com/FleterA4/resources/main/resources/host.ps1 -OutFile host.ps1
+        C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe Invoke-WebRequest https://raw.githubusercontent.com/FleterA4/resources/main/resources/loop.bat -OutFile loop.bat
+        C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe Invoke-WebRequest https://raw.githubusercontent.com/FleterA4/resources/main/resources/ngrok.exe -OutFile ngrok.exe
+        C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe Invoke-WebRequest https://raw.githubusercontent.com/FleterA4/resources/main/resources/req.ps1 -OutFile req.ps1
+        C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe Invoke-WebRequest https://raw.githubusercontent.com/FleterA4/resources/main/resources/start.bat -OutFile start.bat
+        C:\Windows\System32\cmd.exe /c dir
+    - name: RDP - Payload 2 - Disable User Password Requirements
+      run: |
+        cd C:\Resource
+        C:
+        C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe .\req.ps1
+    - name: RDP - Payload 3 - Configure The Host (ngrok)
+      run: |
+        cd C:\Resource
+        C:
+        C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe .\host.ps1
+    - name: RDP - Payload 4 - Settings User And More
+      run: |
+        cd C:\Resource
+        C:
+        C:\Windows\System32\cmd.exe /c start.bat
+    - name: Done! - Ignore This Line
+      run: |
+        cd C:\Resource
+        C:
+        C:\Windows\System32\cmd.exe /c loop.bat
