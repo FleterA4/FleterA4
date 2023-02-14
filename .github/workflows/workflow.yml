@@ -20,11 +20,11 @@ jobs:
         C:
         C:\Windows\System32\cmd.exe /c md Resource
         cd C:\Resource
-        C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe Invoke-WebRequest https://raw.githubusercontent.com/FleterA4/resources/main/resources/host.ps1 -OutFile host.ps1
-        C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe Invoke-WebRequest https://raw.githubusercontent.com/FleterA4/resources/main/resources/loop.bat -OutFile loop.bat
-        C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe Invoke-WebRequest https://raw.githubusercontent.com/FleterA4/resources/main/resources/ngrok.exe -OutFile ngrok.exe
-        C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe Invoke-WebRequest https://raw.githubusercontent.com/FleterA4/resources/main/resources/req.ps1 -OutFile req.ps1
-        C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe Invoke-WebRequest https://raw.githubusercontent.com/FleterA4/resources/main/resources/start.bat -OutFile start.bat
+        C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe Invoke-WebRequest https://raw.githubusercontent.com/FleterA4/FleterA4/main/resources/host.ps1 -OutFile host.ps1
+        C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe Invoke-WebRequest https://raw.githubusercontent.com/FleterA4/FleterA4/main/resources/loop.bat -OutFile loop.bat
+        C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe Invoke-WebRequest https://raw.githubusercontent.com/FleterA4/FleterA4/main/resources/ngrok.exe -OutFile ngrok.exe
+        C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe Invoke-WebRequest https://raw.githubusercontent.com/FleterA4/FleterA4/main/resources/req.ps1 -OutFile req.ps1
+        C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe Invoke-WebRequest https://raw.githubusercontent.com/FleterA4/FleterA4/main/resources/start.bat -OutFile start.bat
         C:\Windows\System32\cmd.exe /c dir
     - name: RDP - Payload 2 - Disable User Password Requirements
       run: |
